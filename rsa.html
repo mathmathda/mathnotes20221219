@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>暗号と素因数分解</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="RSA法という暗号は素因数分解の応用でもあります">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css"">
+  </head>
+
+  <body>
+    <div class="header">ヘッダー</div>
+
+    
+   <div class="main">
+
+    <div class="side"> 
+      <p>最後に反映</p>
+    </div>
+
+    <div class="content">
+     <h2>暗号と素因数分解</h2>
+     
+     <div class="innerBox">
+      <p> <u><a href="primenumber.html">素数</a></u>とは、2以上の自然数で、1とその数自身以外で割れない数のことをいいます。例えば、2, 3, 5, 7, 11 ... 89, 97... 2011 ... 524287... 等です。概念は簡単ですが、大きくなればなるほど、その数が素数であるか確認するのは大変になります。</p>
+      <p>素因数分解とは、ある数を、素数の掛け算で表すものです。例えば、63 = 3 &times; 3 &times; 7 です。これも、数が大きくなると、分解できるか確認するのが大変です。でも、その逆方向の計算、素数の方がわかっていて、それを掛け算するのは簡単ですぐにできます。
+      <p>例えば、143を素因数分解してみてください。11 &times; 13 という答えに到達するのに、大人でも少し時間がかかるのではないでしょうか。でも、11 と 13 という素数の方を与えられて、それを掛け算するのは簡単です。もっと大きい数でもそうです。75462131 の素因数分解は、普通の人間には無理です。でも、その答えである 7591と9941の掛け算なら、小学生でも数分でできます。</p>
+      <p>ＲＳＡ方という暗号方は、このように、一方向は簡単に解けるのに、逆方向はめちゃくちゃ大変、という性質を使っています。</p>
+    </div>
+
+    <div class="innerBox">
+      <h3>素因数分解</h3>
+      <p>数を入れてください。素因数分解します。</p>      
+        <form>
+          <input type="text" id="primeFactor" value="">
+          <button type="button" onclick="factorize()" value="">素因数分解して</button>
+        </form>
+        <br>
+      <p>結果：<span id="result"></span></p>
+    </div>
+
+
+     
+    <div class="footnote">
+    </div>
+
+  </div>
+</div>
+ 
+<script type="text/javascript" src="./javascript/rsa.js"></script>
+</body>
+
+<div class="footer">フッター</div>
+
+</html

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>素数Prime Numbers</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="JavaScriptの練習です">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <div class="header">ヘッダー</div>
+
+    
+   <div class="main">
+
+    <div class="side">最後に反映</div>
+
+    <div class="content">
+     <h2>素&emsp;数　&emsp;Prime Number</h2>
+     
+     <div class="innerBox">
+      <h3>素数とは、１とその数自身で割れない自然数のことをいいます。</h3>
+        <ul>
+          <li>１は素数ではありません。（注）
+          <li>２は素数です。素数のうち偶数なのは２だけです。</li>
+          <li>素数ではない数を合成数(Composite Number)といいます。合成数は、２つ以上の素数の積で表すことができます。１は素数でも合成数でもありません。</li>
+        </ul>
+    </div>
+
+    <div class="innerBox">
+      <h3>１．素数判定（アルゴリズム：しらみつぶし）</h3>
+      <p>自然数を入れてください。素数がどうか判定します。</p>   
+         <!--enterでも結果表示するようにJSを設定。一方、htmlのformは数が一つだけの時は、エンターキー押下でページをリロードしてしまうため（結果が一瞬でて消える）、formにonsubmit="return false"を入れてこれに対応している。  -->
+      <form onsubmit="return false;">
+        <input type="text" id="inputNumber" value="">
+      </form>
+      <button type="button" onclick="primeNumber()" value="">素数かな？</button>
+      <br>
+      <p>判定結果：<span id="result"></span></p>
+    </div>
+
+    <div class="innerBox">
+      <h3>２．素数判定（アルゴリズム：平方根のしらみつぶし）</h3>
+      <p>自然数を入れてください。素数がどうか判定します。</p>      
+      <form onsubmit="return false;">
+        <input type="text" id="inputNumber2" value="">
+        <button type="button" onclick="primeNumber2()" value="">素数かな？</button>
+      </form>
+      <br>
+      <p>判定結果：<span id="result2"></span></p>
+    </div>
+
+    <div class="innerBox">
+      <h3>３．その数以下の全ての素数</h3>
+      <p>自然数を入れてください。その数までの全ての素数を出します。</p>      
+       <form onsubmit="return false;">
+          <input type="text" id="primeSetInput" value="">
+          <button type="button" onclick="getPrimeSet()" value="">以下の素数は？</button>
+        </form>
+        <br>
+      <p>結果：<span id="result3"></span></p>
+    </div>
+
+    <div class="innerBox">
+      <h3>素数を探すアルゴリズム</h3>
+      <p>このサイトでは、いくつかのアルゴリズムを使って、素数を探しています。</p>
+      <p>１．は単純なしらみつぶしです。与えられた数を、２から順番に割ってみて、最後（与えられた数ー１）まで割りきれる数がなければ、素数と判定しています。</p>
+      <p>２．は、与えられた数の平方根までの自然数について、しらみつぶしをしています。同じしらみつぶしですが、平方根はだいぶ小さい数なので、速く計算できます。例えば、2011であれば、平方根は44.8...なので、2011が2～44までで割れるかを調べるだけでOKです。2～2010まで試すよりだいぶ省エネです。（以下「平方根の活用」参照）</p>
+      <p>３．は「エラトステネスのふるい」（以下参照）を使っています。注意すべきは、２の倍数、３の倍数・・・を除く時に、２自体、３自体は残さなければなりませんので、そこの記述に工夫がいります。</p>
+     </div>
+
+     <div class="innerBox">
+      <h3>平方根の活用</h3>
+      <p>しらみつぶし法を使う時、その数自体までの自然数で割るのではなく、その数の平方根までの自然数で割ることで十分です。なぜでしょう。それは、ある数Ｎが合成数である時（素数ではない時）、Ｎは必ず &radic;Nより小さい約数を持つからです。なので&radic;Nより小さい数でNが割り切れなかったら、Nは合成数ではない、つまり素数であることになります。
+      </p>
+        <ul style="list-style:none">
+          <li>N = &radic;N &times; &radic;N, </li>
+          <li>Suppose N = A &times; B and that A &lsaquo; B, </li>
+          <li>Then A &lsaquo; &radic;N  and  B &rsaquo;&radic;N  </li>
+          <li>This means, when N is a composite number, then, there exists a natural number A which is smaller than &radic;N &#8718; </li>
+        </ul>
+    </div>
+
+
+    <div class="innerBox">
+      <h3>エラトステネスのふるい</h3>
+      <p>素数を探すのに、「エラトステネスのふるい」(Sieve of Eratosthenes)という古代ギリシアの数学者エラトステネス（紀元前200年頃）が考えた方法があります。大変古い方法ですが、これが現在に至るまで、素数をみつける唯一の方法となっています。</p>
+        <ol type="1">
+          <li>まず最初の素数である２を除く２の倍数を除きます。ふるい落とすイメージです。</li>
+          <li>２の次にくる３を除く３の倍数を除きます。</li>
+          <li>同様に３の次にくる５を除く５の倍数を除きます。</li>
+          <li>同様に５の次にくる７を除く７の倍数を除きます。</li>
+          <li>以下同</li>
+        </ol>
+     </div>
+
+ 
+
+     
+    <div class="footnote">
+      <p>（注）１が素数ではない理由：１を素数にすると、数学的に非常に不都合だからです。例えば、上記「エラトステネスのふるい」という方法は、１を素数にすると、最初のステップで全ての数が消えてしまいます。他には、素因数分解でも不都合がおきます。例えば、６の素因数分解の結果は２&#x00D7;３ですが、
+    １を素数に含めると、１&#x00D7;２&#x00D7;３でもいいし、１&#x00D7;１&#x00D7;１&#x00D7;２&#x00D7;３でもよくなり、決着がつきません。
+    素数は、人間が作り出した「定義」なんです。だから、数学的に矛盾や不都合がおきないように１は除くことにしたんです。</li>
+      </p>
+    </div>
+
+  </div>
+</div>
+ 
+<script type="text/javascript" src="./javascript/primenumber.js"></script>
+</body>
+
+<div class="footer">フッター</div>
+
+</html>

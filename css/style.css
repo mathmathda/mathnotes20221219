@@ -1,0 +1,102 @@
+/* 全要素のマージン・パディングをリセット */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  text-indent: 1rem;
+}
+
+h2 {
+  text-align: center;
+  color: dimgrey;
+}
+
+h3 {
+    color: dimgrey;
+    padding-bottom: 10px;
+}
+
+ul li {
+  margin-left: 20px;
+  padding: 5px 0px 5px 20px; 
+}
+
+ol li {
+  margin-left: 20px;
+  padding: 5px 0px 5px 0px; 
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+}
+
+#header {
+  box-sizing: border-box;
+  height: 48px;
+  width: calc(100% - 20px);
+  padding: 20px 20px 0 20px;
+  margin: 20px 10px 0 10px;
+  border: 2px solid darkgray;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+#side {
+  box-sizing: border-box;
+  width: 200px;
+  border: 2px solid darkgray; 
+  padding: 40px 5px 0 5px;
+  margin: 20px 10px 0 10px;
+  line-height: 200%;
+}
+
+.content {
+  box-sizing: border-box;
+  height: calc(100% - 48px);
+  width: calc(100% - 40px);
+  border: 2px solid darkgray;
+  padding: 20px 20px 0 20px;
+  margin: 20px 10px 0 10px;
+  flex-grow: 1;
+}
+
+.innerBox {
+  box-sizing: border-box;
+  height: calc(100% - 48px);
+  width: calc(100% - 20px);
+  border: 2px solid lightgrey;
+  padding: 20px 20px 20px 20px;
+  margin: 20px 10px 0 10px;
+  flex-grow: 1;
+}
+
+button {
+  margin-top: 20px;
+}
+
+/* .primeOrNot, .primeSet{ */
+  /* margin-left: 30px; */
+/* } */
+
+
+.footnote {
+  font-size: small;
+  color: dimgray;
+  margin-top: 60px ;
+}
+
+#footer {
+  box-sizing: border-box;
+  height: 48px;
+  width: calc(100% - 20px);
+  padding: 20px 20px 0 20px;
+  margin: 20px 10px 60px 10px;
+  border: 2px solid darkgray;
+}
